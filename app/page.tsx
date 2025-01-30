@@ -2,7 +2,6 @@ import Products from "@/components/Products";
 import Brend from "@/module/Brend";
 import CategoryMenu from "@/module/CategoryMenu";
 import EnjoyMusic from "@/module/EnjoyMusic";
-import Footer from "@/module/Footer";
 import Hero from "@/module/Hero";
 
 export default function Home() {

@@ -37,7 +37,7 @@ const Footer = () => {
         {
             id: 1,
             title: "Ashyo haqida",
-            path: "/"
+            path: "/aboutus"
         },
         {
             id: 2,
