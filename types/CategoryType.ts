@@ -1,10 +1,10 @@
 
 
 export interface CategoryType {
-    children:any,
+    subCategories:any,
     icon:string,
     id:number,
     image:string,
     name:string,
-    parentId:null | number
+    parentCategoryId:null | number
 }

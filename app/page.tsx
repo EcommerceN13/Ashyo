@@ -15,6 +15,8 @@ export default function Home() {
     <CategoryMenu/>
     <Products title="On-sale Products" API='/product-items'/>
     <EnjoyMusic/>
+    <Products title="Last seen Products" API="/product-items"/>
+    
   </>
   );
 }

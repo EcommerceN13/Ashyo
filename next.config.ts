@@ -10,10 +10,10 @@ const nextConfig = {
         search: '',
       },
       {
-        protocol: 'http', // localhost uses http
+        protocol: 'http', 
         hostname: 'localhost',
-        port: '3010', // Specify the port used by your localhost
-        pathname: '/uploads/**', // Match your specific path structure
+        port: '3010', 
+        pathname: '/uploads/**', 
       },
     ],
   },

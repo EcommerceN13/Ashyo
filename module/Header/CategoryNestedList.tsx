@@ -39,7 +39,7 @@ const CategoryNestedList = () => {
             </ul>
             <ul className='w-[48%] space-y-[23px] sm:space-y-[20px] sm:w-[65%] py-[13px] sm:py-[55px] px-[22px] sm:px-[73px] bg-white'>
                 <strong className='font-bold text-[16px]'>{nestedChild.name}</strong>
-                {nestedChild?.children?.map((item:CategoryType) => (
+                {nestedChild?.subCategories?.map((item:CategoryType) => (
                     <li key={item.id} className='text-[14px] sm:text-[16px]'>{item?.name}</li>
                 ))}
             </ul>
