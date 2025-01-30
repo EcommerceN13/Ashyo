@@ -5,6 +5,7 @@ import Header from "@/module/Header/Header";
 import { GlobalContext } from "@/context/Context";
 import { QueryProvider } from "@/query/QueryProvider";
 import Footer from "@/module/Footer";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/logo_site1.ico"></link>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
