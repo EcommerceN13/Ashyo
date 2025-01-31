@@ -5,6 +5,7 @@ import Button from "@/components/Button"
 import Input from "@/components/Input"
 import Modal from "@/components/Modal"
 import ModalContact from "@/components/ModalContact"
+import Products from "@/components/Products"
 
 const initialFormData = {
   firstName: "",
@@ -39,6 +40,7 @@ export default function ContactPage() {
   }
 
   return (
+    <>
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-12 space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">Qayta aloqa</h1>
@@ -94,6 +96,8 @@ export default function ContactPage() {
         <p>Sizning xabaringiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog'lanamiz.</p>
       </ModalContact>
     </div>
+    <Products title="Most popular product" API='/product-items'/>
+    </>
   )
 }
 
