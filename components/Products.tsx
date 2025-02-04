@@ -12,7 +12,7 @@ import Button from './Button'
 
 const Products:FC<ProductPageType> = ({title, API, extraClass}) => {
     const {products} = getProducts(API)
-    console.log(products)
+    // console.log(products)
   return (
     <div className={`mb-[48px] sm:mb-0 mt-[79px] ${extraClass}`}>
       <div className='containers'>

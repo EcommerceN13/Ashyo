@@ -21,3 +21,11 @@ export const getProductsV2 = (minPrice?:number, maxPrice?:number, brandId?:numbe
     })
     return {products, isLoading}
 }
+
+export const getSingleProduct = (id:string | undefined) => {
+    const { data:singleProducts = {}, isLoading } = useQuery({
+        queryKey: ['product_single', id],
+        queryFn: () => instance().get(`/product-items/${id}`).then(res => res.data)
+    })
+    return {singleProducts, isLoading}
+}

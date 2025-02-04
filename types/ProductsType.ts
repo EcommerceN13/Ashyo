@@ -28,6 +28,7 @@ export interface Productss {
     summary:string,
     price:number,
     is_aksiya:boolean,
+    is_liked: boolean;
     brand_id:number,
     image:string,
 
