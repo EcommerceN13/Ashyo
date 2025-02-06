@@ -9,11 +9,16 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { instance } from '@/hooks/instance'
 import { useRouter } from 'next/navigation'
 import { FcLike } from "react-icons/fc";
+import { getLikes } from '@/service/getLikes'
+import { getLikesIdsArray } from '@/service/getLikesIdsArray'
 
 const ProductItem:FC<{item:ProductItemType}> = ({item}) => {
     const router = useRouter()
     const {token, userId} = getToken()
     const queryClient = useQueryClient()
+    const {likeList, isLoading } = getLikesIdsArray(userId)
+    // console.log(likeList, userId)  
+    // likeList.forEach((likedProducts:ProductItemType) => console.log(likedProducts.id === item.id))
 
     const likeMutation = useMutation({
         mutationFn:(data:{productId:number, userId:number}) => instance().post("/like/toggle", data, {
@@ -24,9 +29,10 @@ const ProductItem:FC<{item:ProductItemType}> = ({item}) => {
         onSuccess:(() => {
             queryClient.invalidateQueries({queryKey:['products-items']})
             queryClient.invalidateQueries({queryKey:['like_list']})
+            queryClient.invalidateQueries({queryKey:['like_list_ids_array']})
         })
     })
-
+    console.log()
     function handleLikeClick(productId:number){
         const data = {productId, userId}
         likeMutation.mutate(data)
@@ -45,7 +51,7 @@ const ProductItem:FC<{item:ProductItemType}> = ({item}) => {
                 <Button extrClass='!w-[52px] !h-[44px] !p-0 text-white' type='button' icon={<BasketCartIcon/>} iconPostion='left'/>
             </div>
         </div>
-        <button onClick={() => handleLikeClick(item.id)} className={`absolute top-[15px] right-[15px]`}> {item.product?.is_liked ? <FcLike size={25} /> : <LikeIcon/>}  </button>
+        <button onClick={() => handleLikeClick(item.id)} className={`absolute top-[15px] right-[15px]`}> {likeList.includes(Number(item.product_id)) ? <FcLike size={25} /> : <LikeIcon/>}  </button>
    </div>
   )
 }
