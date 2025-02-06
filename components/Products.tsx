@@ -25,7 +25,7 @@ const Products:FC<ProductPageType> = ({title, API, extraClass}) => {
           className="product-carucel !px-5 !hidden sm:!block"
         >
           {products.map((item:ProductItemType) => (
-            <SwiperSlide key={item.id}> <ProductItem item={item} is_liked={item.is_liked}/> </SwiperSlide>
+            <SwiperSlide key={item.id}> <ProductItem item={item}/> </SwiperSlide>
           ))}
       </Swiper>
       <div className='px-5 sm:hidden grid grid-cols-2 gap-[15px] flex-wrap'>

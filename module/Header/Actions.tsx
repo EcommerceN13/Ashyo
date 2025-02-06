@@ -35,19 +35,19 @@ const Actions = () => {
         },
         {
             id:3,
-            bageCount:11,
+            // bageCount:11,
             bageCount:likeList.length,
             icon:<LikeIcon/>,
             path: "/like"
         },
         {
-            id:3,
+            id:4,
             bageCount:cartList.length,
             icon:<BasketCartIcon/>,
             path: "/cart"
         },
         {
-            id:4,
+            id:5,
             bageCount:null,
             icon:<ProfileIcon/>,
             path: ""
@@ -55,7 +55,7 @@ const Actions = () => {
     ]
 
     function handleActionClick(id:number){
-        if(id == 4){
+        if(id == 5){
             setProfileModal(true)
         }
     }
@@ -94,8 +94,8 @@ const Actions = () => {
         <div className='hidden sm:flex gap-[15px]'>
             {actionList.map(item => (
                 <div onClick={() => handleActionClick(item.id)} key={item.id} className='w-[50px] h-[48px] relative cursor-pointer bg-[#EBEFF3] rounded-[6px] flex items-center justify-center'>
-                    <Link key={item.id} href={item.path}>{item.icon}</Link>
-                    {item.bageCount && <div className='absolute w-[20px] h-[20px] bg-[#E81504] text-white font-bold text-[10px] flex items-center justify-center rounded-full -top-[10px] -right-[10px]'>{item.bageCount}</div>}
+                    {/* <Link key={item.id} href={item.path}>{item.icon}</Link>
+                    {item.bageCount && <div className='absolute w-[20px] h-[20px] bg-[#E81504] text-white font-bold text-[10px] flex items-center justify-center rounded-full -top-[10px] -right-[10px]'>{item.bageCount}</div>} */}
                     <Link  key={item.id} href={item.path}>{item.icon}</Link>
                     {item.bageCount && <div className='absolute w-[20px] h-[20px] bg-[#E81504] text-white font-bold text-[10px] flex items-center justify-center rounded-full -top-[10px] -right-[10px]'>{item.bageCount != 0 && item.bageCount}</div>}
                 </div>

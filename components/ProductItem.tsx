@@ -34,9 +34,7 @@ const ProductItem:FC<{item:ProductItemType}> = ({item}) => {
             queryClient.invalidateQueries({queryKey:['like_list_ids_array']})
         })
     })
-    console.log()
-        })
-    })
+
     const cartMutation = useMutation({
         mutationFn:(data:{product_id:number, user_id:number, quantity:number,price:number }) => instance().post("/cart-item", data, {
             headers:{
@@ -74,14 +72,6 @@ const ProductItem:FC<{item:ProductItemType}> = ({item}) => {
         </div>
         <button onClick={() => handleLikeClick(item.id)} className={`absolute top-[15px] right-[15px]`}> {likeList.includes(Number(item.product_id)) ? <FcLike size={25} /> : <LikeIcon/>}  </button>
    </div>
-        <button onClick={() => handleLikeClick(item.id)} className={`absolute top-[15px] right-[15px]`}>
-    {item.product?.is_liked ? (
-        <FcLike size={25} className="text-red-500" /> // Apply red color for liked products
-    ) : (
-        <LikeIcon />
-    )}
-</button>
- </div>
   )
 }
 
