@@ -12,7 +12,6 @@ import Button from './Button'
 
 const Products:FC<ProductPageType> = ({title, API, extraClass}) => {
     const {products} = getProducts(API)
-    console.log(products)
   return (
     <div className={`mb-[48px] sm:mb-0 mt-[79px] ${extraClass}`}>
       <div className='containers'>
@@ -26,7 +25,7 @@ const Products:FC<ProductPageType> = ({title, API, extraClass}) => {
           className="product-carucel !px-5 !hidden sm:!block"
         >
           {products.map((item:ProductItemType) => (
-            <SwiperSlide key={item.id}> <ProductItem item={item}/> </SwiperSlide>
+            <SwiperSlide key={item.id}> <ProductItem item={item} is_liked={item.is_liked}/> </SwiperSlide>
           ))}
       </Swiper>
       <div className='px-5 sm:hidden grid grid-cols-2 gap-[15px] flex-wrap'>

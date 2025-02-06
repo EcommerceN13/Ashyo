@@ -14,11 +14,10 @@ const Products = () => {
 
   const {products, isLoading} = getProductsV2(minPrice, maxPrice, brandId)
 
-  
   return (
-    <div className='flex containers gap-[20px]'>
+    <div className='flex flex-col sm:flex-row containers gap-[20px]'>
       <ProductFilter setBrandId={setBrandId} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice}/>
-      <div className='w-[75%] !h-[800px] overflow-y-auto flex flex-wrap justify-between gap-[20px]'>
+      <div className='sm:w-[75%]  !h-[800px] overflow-y-auto grid grid-cols-2 sm:flex flex-wrap justify-between gap-[20px]'>
         {isLoading ? <ProductItemSkeleton extraClass='!flex-wrap !justify-between !gap-[20px] !space-x-0'/> : products.map((item:ProductItemType) => <ProductItem  key={item.id} item={item}/>)}
       </div>
     </div>

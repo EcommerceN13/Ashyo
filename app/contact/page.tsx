@@ -30,8 +30,6 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Bu yerda backendga so'rov yuborish kerak
-    console.log(formData)
     await new Promise((resolve) => setTimeout(resolve, 1000)) // Imitatsiya uchun
     setIsSubmitting(false)
     setShowModal(true)

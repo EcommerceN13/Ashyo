@@ -28,6 +28,7 @@ export interface Productss {
     summary:string,
     price:number,
     is_aksiya:boolean,
+    is_liked?:boolean | undefined,
     brand_id:number,
     image:string,
 
@@ -40,7 +41,8 @@ export interface ProductItemType {
     price:number,
     product_id:number,
     color_id:number,
-    name:string
+    name:string,
+    quantity?:number
 }
 
 export interface ProductTypeV2 {
@@ -61,4 +63,11 @@ export interface ProductTypeV2 {
     rating:number,
     summary:string,
     updatedAt:string
+}
+
+
+export interface CartProductType{
+    id:number,
+    product:ProductItemType,
+    product_id:string
 }

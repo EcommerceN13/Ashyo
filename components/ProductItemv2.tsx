@@ -12,7 +12,7 @@ import { instance } from '@/hooks/instance'
 import { useRouter } from 'next/navigation'
 import { FcLike } from "react-icons/fc";
 
-const ProductItem:FC<{item:ProductItemType}> = ({item}) => {
+const ProductItemV2:FC<{item:ProductItemType}> = ({item}) => {
     const router = useRouter()
     const {token, userId} = getToken()
     const queryClient = useQueryClient()
@@ -64,14 +64,11 @@ const ProductItem:FC<{item:ProductItemType}> = ({item}) => {
             </div>
         </div>
         <button onClick={() => handleLikeClick(item.id)} className={`absolute top-[15px] right-[15px]`}>
-    {item.product?.is_liked ? (
-        <FcLike size={25} className="text-red-500" /> // Apply red color for liked products
-    ) : (
-        <LikeIcon />
-    )}
+              <FcLike size={25} className="text-red-500" /> 
 </button>
  </div>
   )
 }
 
-export default ProductItem
+
+export default ProductItemV2;
