@@ -11,3 +11,4 @@ export const getLikes = () => {
     })
     return {likeList, isLoading}
 }
+}

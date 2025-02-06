@@ -8,6 +8,7 @@ import { getVaration } from '@/service/getVaration';
 import { ProductFilterType, VarationType } from '@/types/VarationType';
 import Button from './Button';
 import { useQueryClient } from '@tanstack/react-query';
+import { FilterIcon } from 'lucide-react';
 
 const ProductFilter:FC<ProductFilterType> = ({setMaxPrice, setMinPrice, setBrandId}) => {
     const queryClient = useQueryClient()
@@ -56,7 +57,9 @@ const ProductFilter:FC<ProductFilterType> = ({setMaxPrice, setMinPrice, setBrand
         queryClient.invalidateQueries({queryKey:['product_v2']})
     }
   return (
-    <div className='w-[25%] p-[18px] bg-[#EBEFF3] rounded-[8px]'>
+    <>
+    <Button extrClass='sm:hidden !w-[113px] !py-[12px] gap-[10px]' icon={<FilterIcon/>} iconPostion='right' title='Filtir' type='button'/>
+    <div className='hidden sm:block w-[25%] p-[18px] bg-[#EBEFF3] rounded-[8px]'>
         <h2 className='font-bold mb-[16px] text-[16px] leading-[34px]'>Narx <span className='font-normal text-[14px]'>[so‘m]</span></h2>
         <div className='flex justify-between mb-[26px]'>
             <div className='flex w-[45%] flex-col'>
@@ -99,6 +102,7 @@ const ProductFilter:FC<ProductFilterType> = ({setMaxPrice, setMinPrice, setBrand
             </div>
         </div>
     </div>
+    </>
   )
 }
 

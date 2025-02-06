@@ -1,3 +1,4 @@
+"use client"
 import { LocationIcon } from '@/icons'
 import { HeaderTopListType } from '@/types/HeaderType'
 import Link from 'next/link'
@@ -5,6 +6,7 @@ import React from 'react'
 import Lang from './Lang'
 
 const HeaderTop = () => {
+    
     const navlist:HeaderTopListType[] = [
         {
             id:1,
@@ -32,6 +34,7 @@ const HeaderTop = () => {
         },
 
     ]
+    
   return (
     <div className='bg-[#EBEFF3] hidden sm:block py-[11px]'>
         <div className='flex items-center justify-between containers '>

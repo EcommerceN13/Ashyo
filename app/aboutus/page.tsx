@@ -1,52 +1,56 @@
+import Button from "@/components/Button"
 import Products from "@/components/Products"
 import { Share2, Printer } from "lucide-react"
 
 export default function AshyoPage() {
+  const sideBarList = [
+    {
+      id: 1,
+      title: "Ashyo haqida",
+      description: "Ashyo 2022 yilda Toshkent shahrida tashkil etylgan."
+    },
+    {
+      id: 2,
+      title: "Muddatli to'lov",
+      description: " Ashyoda barcha elektronika maishiy texnikalar uchun qulay onlayn to'lov rejasi"
+    },
+    {
+      id: 3,
+      title: "To'lov usullari",
+      description: "Siz uchun qulay usulda to'lang do'konda, Cilik, Payme orqali."
+    },
+    {
+      id: 4,
+      title: "To'lov usullari",
+      description: "Siz uchun qulay usulda to'lang do'konda, Cilik, Payme orqali."
+    },
+    {
+      id: 5,
+      title: "To'lov usullari",
+      description: "Siz uchun qulay usulda to'lang do'konda, Cilik, Payme orqali."
+    },
+    {
+      id: 6,
+      title: "To'lov usullari",
+      description: "Siz uchun qulay usulda to'lang do'konda, Cilik, Payme orqali."
+    }
+  ]
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8 md:px-6">
-        <div className="grid gap-6 md:grid-cols-[300px,1fr]">
+    <div className="min-h-screen bg-gray-50 pt-5">
+      <div className="containers mx-auto py-8 px-6">
+        <div className="flex flex-col lg:flex-row justify-between gap-[20px]">
           {/* Sidebar */}
-          <div className="rounded-lg bg-gray-100 p-6">
-            <nav className="space-y-8">
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">Ashyo haqida</h2>
-                <p className="mt-2 text-sm text-gray-600">Ashyo 2022 yilda Toshkent shahrida tashkil etylgan.</p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">Muddatli to'lov</h2>
-                <p className="mt-2 text-sm text-gray-600">
-                  Ashyoda barcha elektronika maishiy texnikalar uchun qulay onlayn to'lov rejasi
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">To'lov usullari</h2>
-                <p className="mt-2 text-sm text-gray-600">
-                  Siz uchun qulay usulda to'lang do'konda, Cilik, Payme orqali.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">Yetkazib berish</h2>
-                <p className="mt-2 text-sm text-gray-600">Ashyoda tovarlarni yetkazib berish shartlari.</p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">Tavorlarga kafolat</h2>
-                <p className="mt-2 text-sm text-gray-600">
-                  Ashyo onlayn do'konining kafolati va qaytarilish haqida hamma narsani bilib oling
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">Yordam</h2>
-                <p className="mt-2 text-sm text-gray-600">Tushumagan narsalaringiz bo'lsa savollaringizni bering</p>
-              </div>
-            </nav>
-          </div>
-
+            <div className="rounded-lg sm:w-[40%] bg-gray-100 p-6 flex justify-between flex-wrap gap-[18px] sm:space-y-8">
+              {sideBarList.map(item => (
+                <div key={item.id}>
+                  <div className="hidden sm:block" key={item.id}>
+                    <h2 className="text-lg font-semibold text-gray-900">{item.title}</h2>
+                    <p className="mt-2 text-sm text-gray-600">{item.description}</p>
+                  </div>
+                  <Button extrClass="sm:!hidden !py-[16px] !px-[12px]" type="button" title={item.title}/>
+                </div>
+              ))}
+            </div>
           {/* Main Content */}
           <div className="space-y-6">
             <h1 className="text-3xl font-bold text-gray-900">Ashyo haqida</h1>
@@ -91,9 +95,9 @@ export default function AshyoPage() {
           </div>
         </div>
       </div>
-      <Products title="Last seen Products" API="/product-items"/>
+      <Products title="Last seen Products" API="/product-items" />
     </div>
-    
+
   )
 }
 

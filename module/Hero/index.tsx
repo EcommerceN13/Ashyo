@@ -15,6 +15,7 @@ import { Skeleton } from '@heroui/skeleton';
 
 const Hero = () => {
     const {banners, isLoading} = getBanners()
+    console.log(banners);
     
     return (
         <div className="bg-[#dedede] mb-[33px] sm:mb-[100px]">

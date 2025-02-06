@@ -6,9 +6,16 @@ import { SignIn, SignUp } from './Auth'
 import { auth } from '@/service/auth'
 import { Context } from '@/context/Context'
 import toast, {Toaster} from "react-hot-toast"
+import { getLikes } from '@/service/getLikes'
+import { getCarts } from '@/service/getCarts'
 import Link from 'next/link'
 
 const Actions = () => {
+    const {likeList} = getLikes()
+    const {cartList} = getCarts()
+    console.log(cartList);
+    
+
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const {setToken} = useContext(Context)
     const [authStatus, setAuthStatus] = useState<"sign_in" | "sign_up">("sign_in")
@@ -29,6 +36,13 @@ const Actions = () => {
         {
             id:3,
             bageCount:11,
+            bageCount:likeList.length,
+            icon:<LikeIcon/>,
+            path: "/like"
+        },
+        {
+            id:3,
+            bageCount:cartList.length,
             icon:<BasketCartIcon/>,
             path: "/cart"
         },
@@ -82,6 +96,8 @@ const Actions = () => {
                 <div onClick={() => handleActionClick(item.id)} key={item.id} className='w-[50px] h-[48px] relative cursor-pointer bg-[#EBEFF3] rounded-[6px] flex items-center justify-center'>
                     <Link key={item.id} href={item.path}>{item.icon}</Link>
                     {item.bageCount && <div className='absolute w-[20px] h-[20px] bg-[#E81504] text-white font-bold text-[10px] flex items-center justify-center rounded-full -top-[10px] -right-[10px]'>{item.bageCount}</div>}
+                    <Link  key={item.id} href={item.path}>{item.icon}</Link>
+                    {item.bageCount && <div className='absolute w-[20px] h-[20px] bg-[#E81504] text-white font-bold text-[10px] flex items-center justify-center rounded-full -top-[10px] -right-[10px]'>{item.bageCount != 0 && item.bageCount}</div>}
                 </div>
             ))}
         </div>

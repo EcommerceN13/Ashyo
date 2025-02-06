@@ -12,11 +12,11 @@ export const getProducts = (API:string) => {
     return {products, isLoading}
 }
 
-export const getProductsV2 = (minPrice?:number, maxPrice?:number, brandId?:number | null) => {
-    const params = { page: 1, limit: 1000, min_price:minPrice ? minPrice : null, max_price:maxPrice ? maxPrice : null, brand_id:brandId ? brandId: null}
+export const getProductsV2 = (minPrice?:number, maxPrice?:number, brandId?:number | null, category_id?:number | null) => {
+    const params = { page: 1, limit: 1000, min_price:minPrice ? minPrice : null, max_price:maxPrice ? maxPrice : null, brand_id:brandId ? brandId: null, category_id:category_id ? category_id : null}
 
     const { data:products = [], isLoading } = useQuery({
-        queryKey: ['product_v2', minPrice, maxPrice,brandId],
+        queryKey: ['product_v2', minPrice, maxPrice,brandId, category_id,],
         queryFn: () => instance().get("/products", { params }).then(res => res.data.items)
     })
     return {products, isLoading}

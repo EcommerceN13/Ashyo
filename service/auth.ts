@@ -9,6 +9,8 @@ export const auth = (status: "sign_in" | "sign_up", data: SignInType | SignUpTyp
     if (status == "sign_in" && setToken) {
         return instance().post(`/auth/login`, data).then(res => {
             setToken(res.data.accessToken);
+            console.log(res);
+            
             localStorage.setItem("userId", res.data.user.id)
             toast.success(`Welcome ${res.data.user.fullname}` )
             return res
