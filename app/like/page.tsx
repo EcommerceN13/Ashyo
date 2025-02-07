@@ -35,7 +35,7 @@ export default function LikePage() {
         },
       }),
     onSuccess: () => {
-      queryClient.invalidateQueries(["like_list"]);
+      queryClient.invalidateQueries({queryKey: ["like_list"]});
     },
   });
 
@@ -46,14 +46,14 @@ export default function LikePage() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex containers justify-center items-center h-screen">
         <Loader2 className="animate-spin w-6 h-6 text-gray-500" />
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="containers mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Liked Products</h1>
       {likedProducts.length === 0 ? (
         <p className="text-gray-500">No liked products found.</p>
@@ -63,8 +63,8 @@ export default function LikePage() {
             <ProductItemV2
               key={product.id}
               item={product}
-              is_liked={product.is_liked}
-              handleLikeClick={() => handleLikeClick(product.id)}
+              // is_liked={product.is_liked}
+              // handleLikeClick={() => handleLikeClick(product.id)}
             />
           ))}
         </div>

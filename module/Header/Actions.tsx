@@ -29,25 +29,19 @@ const Actions = () => {
         },
         {
             id:2,
-            bageCount:11,
-            icon:<LikeIcon/>,
-            path: ""
-        },
-        {
-            id:3,
             // bageCount:11,
-            bageCount:likeList.length,
+            bageCount:likeList.length || "",
             icon:<LikeIcon/>,
             path: "/like"
         },
         {
-            id:4,
+            id:3,
             bageCount:cartList.length,
             icon:<BasketCartIcon/>,
             path: "/cart"
         },
         {
-            id:5,
+            id:4,
             bageCount:null,
             icon:<ProfileIcon/>,
             path: ""
@@ -55,7 +49,7 @@ const Actions = () => {
     ]
 
     function handleActionClick(id:number){
-        if(id == 5){
+        if(id == 4){
             setProfileModal(true)
         }
     }
