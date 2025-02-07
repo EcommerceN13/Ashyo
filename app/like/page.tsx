@@ -63,8 +63,8 @@ export default function LikePage() {
             <ProductItemV2
               key={product.id}
               item={product}
-              // is_liked={product.is_liked}
-              // handleLikeClick={() => handleLikeClick(product.id)}
+              is_liked={product.is_liked}
+              handleLikeClick={() => handleLikeClick(product.id)}
             />
           ))}
         </div>
