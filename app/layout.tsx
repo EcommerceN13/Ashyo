@@ -5,7 +5,7 @@ import Header from "@/module/Header/Header";
 import { GlobalContext } from "@/context/Context";
 import { QueryProvider } from "@/query/QueryProvider";
 import Footer from "@/module/Footer";
-import Link from "next/link";
+import { GlobalCartContext } from "@/context/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,10 +35,12 @@ export default function RootLayout({
       >
         <GlobalContext>
           <QueryProvider>
-            <Header/>
-            
-            {children}
-            <Footer/>
+            <GlobalCartContext>
+              <Header />
+
+              {children}
+              <Footer />
+            </GlobalCartContext>
           </QueryProvider>
         </GlobalContext>
       </body>

@@ -35,6 +35,7 @@ export interface Productss {
 }
 
 export interface ProductItemType {
+    key: number;
     product:Productss
     id:number,
     image:string,
@@ -42,7 +43,9 @@ export interface ProductItemType {
     product_id:number,
     color_id:number,
     name:string,
-    quantity?:number
+    quantity?:number,
+    is_liked?: boolean | undefined,
+    handleLikeClick: () => void
 }
 
 export interface ProductTypeV2 {
@@ -69,5 +72,7 @@ export interface ProductTypeV2 {
 export interface CartProductType{
     id:number,
     product:ProductItemType,
-    product_id:string
+    product_id:string,
+    quantity: number,
+    is_liked: boolean;
 }

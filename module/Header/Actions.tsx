@@ -36,7 +36,7 @@ const Actions = () => {
         },
         {
             id:3,
-            bageCount:cartList.length,
+            bageCount:cartList.length || "",
             icon:<BasketCartIcon/>,
             path: "/cart"
         },
