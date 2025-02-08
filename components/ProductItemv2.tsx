@@ -1,5 +1,4 @@
 "use client"
-
 import { IMAGE_API } from '@/hooks/getEnv'
 import { ProductItemType } from '@/types/ProductsType'
 import Image from 'next/image'
@@ -26,6 +25,7 @@ const ProductItemV2:FC<{item:ProductItemType}> = ({item}) => {
         onSuccess:(() => {
             queryClient.invalidateQueries({queryKey:['products-items']})
             queryClient.invalidateQueries({queryKey:['like_list']})
+            queryClient.invalidateQueries({queryKey:['like_list_ids_array']})
         })
     })
     const cartMutation = useMutation({
@@ -41,7 +41,7 @@ const ProductItemV2:FC<{item:ProductItemType}> = ({item}) => {
     })
 
     function handleCartClick(item: ProductItemType) {
-        const newData = {product_id:item.product.id, user_id:userId, quantity:1, price:1}
+        const newData = {product_id:item.product?.id, user_id:userId, quantity:1, price:1}
         cartMutation.mutate(newData)
     }
 
